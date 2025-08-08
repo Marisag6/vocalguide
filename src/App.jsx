@@ -25,7 +25,7 @@ function App() {
             <Route path="/comments" element={<Comments />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/register" element={<Register />} />
-             <Route path="/login" element={<Login />} />
+             <Route path="/Login" element={<Login />} />
              <Route path="/tienda" element={<Store />} />
              <Route path="/comentarios" element={<Comentarios />} />
              <Route path="/checkout" element={<CheckoutForm />} />
