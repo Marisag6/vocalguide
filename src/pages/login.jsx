@@ -4,7 +4,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -50,8 +50,7 @@ const Login = () => {
               onChange={(e) => setEmail(e.target.value)}
               className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-violet-400"
               placeholder="ejemplo@email.com"
-              required
-            />
+              required />
           </div>
 
           <div>
@@ -62,8 +61,7 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
               className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-violet-400"
               placeholder="Contraseña segura"
-              required
-            />
+              required />
           </div>
 
           <button
@@ -76,7 +74,7 @@ const Login = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Login;
 
