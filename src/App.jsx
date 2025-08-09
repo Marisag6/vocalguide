@@ -6,7 +6,7 @@ import Comments from "./pages/Comments";
 import Shop from "./pages/Shop";
 import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
-import Login from "./pages/Login";
+import Login from "./pages/login";
 import Store from "./pages/Store";
 import Comentarios from './pages/Comentarios';
 import Footer from "./components/Footer";
@@ -109,3 +109,4 @@ function App() {
 }
 
 export default App;
+
