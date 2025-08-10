@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import CommentForm from '../components/Comentarios/CommentForm';
 import CommentList from '../components/Comentarios/CommentList';
 
+
 const Comentarios = () => {
   const [comments, setComments] = useState([
     {

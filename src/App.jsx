@@ -11,6 +11,7 @@ import Store from "./pages/Store";
 import Comentarios from './pages/Comentarios';
 import Footer from "./components/Footer";
 import CheckoutForm from './components/store/CheckoutForm';
+//import Images from "./images";
 import "./index.css";
 
 function App() {

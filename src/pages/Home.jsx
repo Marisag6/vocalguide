@@ -163,7 +163,7 @@ Nuestra guía digital te lleva de la mano con técnicas profesionales explicadas
     {/* Imagen decorativa */}
     <div className="w-full md:w-1/2">
       <img
-        src="images/teen2.jpeg" // Asegúrate de tener esta imagen en tu carpeta /public o cámbiala por otra
+        src="/images/teen2.jpeg" // Asegúrate de tener esta imagen en tu carpeta /public o cámbiala por otra
         alt="Usuarios felices"
         className="rounded-lg shadow-md w-full"
       />
