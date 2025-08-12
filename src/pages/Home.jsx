@@ -9,6 +9,7 @@ import pdfPage2 from "../pdf/page2.jpg";
 import pdfPage3 from "../pdf/page3.jpg";
 import pdfPage4 from "../pdf/page4.jpg";
 import pdfPage5 from "../pdf/page5.jpg";
+import pdfPage6 from "../pdf/teen2.jpg";
 
 
 
@@ -163,7 +164,7 @@ Nuestra guía digital te lleva de la mano con técnicas profesionales explicadas
     {/* Imagen decorativa */}
     <div className="w-full md:w-1/2">
       <img
-        src="/images/teen2.jpg" // Asegúrate de tener esta imagen en tu carpeta /public o cámbiala por otra
+        src={pdfPage6} // Asegúrate de tener esta imagen en tu carpeta /public o cámbiala por otra
         alt="Usuarios felices"
         className="rounded-lg shadow-md w-full"
       />

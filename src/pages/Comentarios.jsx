@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import CommentForm from '../components/Comentarios/CommentForm';
 import CommentList from '../components/Comentarios/CommentList';
+import pdfPage7 from "../pdf/singer1.jpeg";
+import pdfPage8 from "../pdf/group.jpeg";
+import pdfPage9 from "../pdf/singer2.jpeg";
 
 
 const Comentarios = () => {
@@ -26,17 +29,17 @@ const Comentarios = () => {
       {/* Imagen decorativa */}
       <div className="flex justify-center gap-6 flex-wrap">
         <img
-          src="/images/singer1.jpeg"
+          src={pdfPage7}
           alt="Comentario 1"
           className="max-w-[450px] max-h-[350px] object-cover rounded-lg shadow-lg"
         />
         <img
-          src="/images/group.jpeg"
+          src={pdfPage8}
           alt="Comentario 2"
           className="max-w-[450px] max-h-[350px] object-cover rounded-lg shadow-lg"
         />
         <img
-          src="/images/singer2.jpeg"
+          src={pdfPage9}
           alt="Comentario 3"
           className="max-w-[450px] max-h-[350px] object-cover rounded-lg shadow-lg"
         />

@@ -1,5 +1,6 @@
 import React from "react";
 import ProductCard from "../components/store/ProductCard";
+import pdfPage13 from "../pdf/portada.png";
 
 const Store = () => {
   const product = {
@@ -8,7 +9,7 @@ const Store = () => {
     description: "Domina las bases del canto con esta guía completa y práctica.",
   
     price: 7.99,
-    image: "/images/portada.png", // Asegúrate de tener esta imagen en public/images
+    image: pdfPage13, // Asegúrate de tener esta imagen en public/images
   };
 
   return (

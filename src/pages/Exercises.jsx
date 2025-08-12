@@ -2,27 +2,30 @@
 import React, { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import pdfPage10 from "../pdf/kid1.jpeg";
+import pdfPage11 from "../pdf/singer1.jpeg";
+import pdfPage12 from "../pdf/group.jpeg";
 
 const exercises = [
   {
     id: 1,
     title: "Ejercicio 1: Respiración diafragmática",
     description: "Aprende a controlar tu respiración usando el diafragma.",
-    image: "/images/kid1.jpeg",
+    image: pdfPage10,
     media: "https://www.youtube.com/embed/0V7mEY9zA9w",
   },
   {
     id: 2,
     title: "Ejercicio 2: Vocalización con escalas",
     description: "Calienta tu voz usando escalas ascendentes y descendentes.",
-    image: "/images/singer1.jpeg",
+    image: pdfPage11,
     media: "https://www.youtube.com/embed/dFDZbPBIzF4",
   },
   {
     id: 3,
     title: "Ejercicio 3: Resonancia",
     description: "Enfócate en los resonadores faciales para mejorar el timbre.",
-    image: "/images/teen2.jpeg",
+    image: pdfPage12,
     media: "https://www.youtube.com/embed/Bi8C8IBZbFE",
   },
 ];
