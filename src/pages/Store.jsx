@@ -1,7 +1,6 @@
 import React from "react";
 import ProductCard from "../components/store/ProductCard";
 import pdfPage13 from "../pdf/portada.png";
-import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, ShoppingCart, FileText, CreditCard, Upload } from "lucide-react";
 
 const Store = () => {
@@ -37,26 +36,27 @@ const Store = () => {
       <h2 className="text-2xl font-semibold text-center mb-6">Cómo comprar</h2>
       <div className="grid md:grid-cols-5 gap-4">
         {steps.map((step, index) => (
-          <Card key={index} className="shadow-md rounded-2xl p-4 hover:shadow-lg transition">
-            <CardContent className="flex flex-col items-center text-center space-y-3">
-              <step.icon className="w-10 h-10 text-pink-500" />
-              <h3 className="font-bold text-lg">{step.title}</h3>
+          <div
+            key={index}
+            className="bg-gray-50 border rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:shadow-lg transition"
+          >
+            <step.icon className="w-10 h-10 text-pink-500 mb-3" />
+            <h3 className="font-bold text-lg mb-2">{step.title}</h3>
 
-              {/* 🔹 Si es el paso 5, mostramos el link a WhatsApp */}
-              {step.title === "Paso 5" ? (
-                <a
-                  href="https://wa.me/584124998538"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-pink-500 font-medium hover:underline"
-                >
-                  {step.text}
-                </a>
-              ) : (
-                <p className="text-sm text-gray-600">{step.text}</p>
-              )}
-            </CardContent>
-          </Card>
+            {/* 🔹 Si es el paso 5, mostramos el link a WhatsApp */}
+            {step.title === "Paso 5" ? (
+              <a
+                href="https://wa.me/584124998538"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-pink-500 font-medium hover:underline"
+              >
+                {step.text}
+              </a>
+            ) : (
+              <p className="text-sm text-gray-600">{step.text}</p>
+            )}
+          </div>
         ))}
       </div>
     </div>
