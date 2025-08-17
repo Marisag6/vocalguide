@@ -8,6 +8,7 @@ const Store = () => {
     id: 1,
     title: "Guía de Vocalización para Principiantes",
     description: "Domina las bases del canto con esta guía completa y práctica.",
+  
     price: 7.99,
     image: pdfPage13, // Asegúrate de tener esta imagen en public/images
   };
@@ -64,6 +65,11 @@ const Store = () => {
 };
 
 export default Store;
+
+
+
+
+
 
 
 
