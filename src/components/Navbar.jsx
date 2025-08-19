@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logo from '../pdf/logo3.png';
 
 export default function Navbar() {
   return (
@@ -6,12 +7,14 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo o nombre */}
-          <Link
-            to="images/logo.png"
-            className="text-2xl font-bold text-purple-300 hover:text-purple-100 transition duration-300"
-          >
-            VocalGuide
-          </Link>
+
+<Link to="/" className="flex items-center space-x-2">
+  <img src={logo} alt="VocalGuide Logo" className="h-10 w-auto" />
+  <span className="text-2xl font-bold text-purple-300 hover:text-purple-100 transition duration-300">
+    VocalMaster Academia
+  </span>
+</Link>
+
 
           {/* Menú */}
           <div className="flex space-x-6">

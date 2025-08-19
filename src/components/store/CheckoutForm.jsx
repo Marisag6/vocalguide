@@ -1,6 +1,15 @@
-import React, { useState } from 'react';
-import jsPDF from 'jspdf';
-import autoTable from 'jspdf-autotable';
+import React, { useState } from "react";
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
+// 👇 Importamos el logo
+import logo from '../../pdf/logo2.png'; // ajusta la ruta si está en otra carpeta
+import {
+  ShoppingCart,
+  FileText,
+  CreditCard,
+  CheckCircle,
+  Upload,
+} from "lucide-react";
 
 const CheckoutForm = () => {
   const [formData, setFormData] = useState({
@@ -24,7 +33,6 @@ const CheckoutForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // 🔹 Aquí defines tus datos de pago reales
   const paymentDetails = {
     paypal: `
       PayPal:
@@ -46,7 +54,7 @@ const CheckoutForm = () => {
       Cuenta: 0105-0134-210-134284623
       Titular: María Isabel Gamboa
       CI: V-19.029.444
-    `
+    `,
   };
 
   const generarFacturaPDF = (formData) => {
@@ -55,8 +63,12 @@ const CheckoutForm = () => {
     const fecha = new Date().toLocaleDateString();
     const facturaId = Math.floor(Math.random() * 1000000);
 
+    // 👇 Insertamos el logo en la parte superior izquierda
+    doc.addImage(logo, "PNG", 150, 10, 60, 60); 
+    // (imagen, tipo, x, y, ancho, alto) → ajusta valores a tu gusto
+
     doc.setFontSize(18);
-    doc.text('Factura de Compra', 14, 22);
+    doc.text("Factura de Compra", 14, 22);
 
     doc.setFontSize(12);
     doc.text(`Factura N°: ${facturaId}`, 14, 30);
@@ -69,23 +81,27 @@ const CheckoutForm = () => {
     doc.text(`Precio: $7.99`, 14, 76);
     doc.text(`Método de pago: ${formData.metodoPago}`, 14, 84);
 
-    // Añadimos info de pago
     doc.text(`Datos de pago:`, 14, 92);
     doc.text(paymentDetails[formData.metodoPago] || "", 14, 100);
 
     autoTable(doc, {
       startY: 120,
-      head: [['Producto', 'Cantidad', 'Precio']],
-      body: [['Guía de Vocalización', '1', '$7.99']]
+      head: [["Producto", "Cantidad", "Precio"]],
+      body: [["Guía de Vocalización", "1", "$7.99"]],
     });
 
-    doc.save('factura.pdf');
+    doc.save("factura.pdf");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!formData.nombre || !formData.correo || !formData.country || !formData.metodoPago) {
+    if (
+      !formData.nombre ||
+      !formData.correo ||
+      !formData.country ||
+      !formData.metodoPago
+    ) {
       alert("Por favor completa todos los campos obligatorios.");
       return;
     }
@@ -94,11 +110,65 @@ const CheckoutForm = () => {
     alert("¡Compra confirmada! Se generó la factura.");
   };
 
+  // 🔹 Pasos del proceso
+  const steps = [
+    { icon: ShoppingCart, title: "Paso 1", text: "Ve a la sección Comprar." },
+    {
+      icon: FileText,
+      title: "Paso 2",
+      text: "Haz clic en 'Comprar Ahora' y completa el formulario.",
+    },
+    {
+      icon: CreditCard,
+      title: "Paso 3",
+      text: "Selecciona tu método de pago preferido.",
+    },
+    {
+      icon: CheckCircle,
+      title: "Paso 4",
+      text: "Confirma la compra y genera tu factura en PDF.",
+    },
+    {
+      icon: Upload,
+      title: "Paso 5",
+      text: "Realiza el pago y envía tu comprobante por WhatsApp.",
+    },
+  ];
+
   return (
-    <div className="max-w-2xl mx-auto p-4 bg-white shadow-md rounded-xl mt-6">
-      <h2 className="text-2xl font-semibold mb-4 text-center">Formulario de Compra</h2>
+    <div className="max-w-3xl mx-auto p-4 bg-white shadow-md rounded-xl mt-6">
+      {/* 🔹 Sección de pasos */}
+      <h2 className="text-2xl font-semibold text-center mb-6">Cómo comprar</h2>
+      <div className="grid md:grid-cols-5 gap-4 mb-8">
+        {steps.map((step, index) => (
+          <div
+            key={index}
+            className="bg-gray-50 border rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:shadow-lg transition"
+          >
+            <step.icon className="w-10 h-10 text-pink-500 mb-3" />
+            <h3 className="font-bold text-lg mb-2">{step.title}</h3>
+
+            {step.title === "Paso 5" ? (
+              <a
+                href="https://wa.me/584124998538"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-pink-500 font-medium hover:underline"
+              >
+                {step.text}
+              </a>
+            ) : (
+              <p className="text-sm text-gray-600">{step.text}</p>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* 🔹 Formulario */}
+      <h2 className="text-2xl font-semibold mb-4 text-center">
+        Formulario de Compra
+      </h2>
       <form onSubmit={handleSubmit} className="space-y-4">
-        
         <div>
           <label className="block font-medium">Nombre completo</label>
           <input
@@ -158,12 +228,7 @@ const CheckoutForm = () => {
           </select>
         </div>
 
-        {/* 🔹 Mostrar datos de pago en pantalla */}
-        {formData.metodoPago && (
-          <div className="p-3 bg-gray-100 rounded-md text-sm font-mono whitespace-pre-line">
-            {paymentDetails[formData.metodoPago]}
-          </div>
-        )}
+      
 
         <button
           type="submit"
@@ -177,5 +242,3 @@ const CheckoutForm = () => {
 };
 
 export default CheckoutForm;
-
-

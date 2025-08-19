@@ -12,21 +12,24 @@ const exercises = [
     title: "Ejercicio 1: Respiración diafragmática",
     description: "Aprende a controlar tu respiración usando el diafragma.",
     image: pdfPage10,
-    media: "https://www.youtube.com/embed/0V7mEY9zA9w",
+    media: "https://player.vimeo.com/video/1111148889?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+    
   },
   {
     id: 2,
     title: "Ejercicio 2: Vocalización con escalas",
     description: "Calienta tu voz usando escalas ascendentes y descendentes.",
     image: pdfPage11,
-    media: "https://www.youtube.com/embed/dFDZbPBIzF4",
+    media: "https://player.vimeo.com/video/1111148813?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+    
   },
   {
     id: 3,
     title: "Ejercicio 3: Resonancia",
     description: "Enfócate en los resonadores faciales para mejorar el timbre.",
     image: pdfPage12,
-    media: "https://www.youtube.com/embed/Bi8C8IBZbFE",
+    media: "https://player.vimeo.com/video/1111148694?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+    
   },
 ];
 
@@ -71,6 +74,21 @@ export default function Exercises() {
             </div>
           ))}
         </div>
+         
+<div className="mt-10 bg-pink-50 border border-pink-200 rounded-xl p-6 flex flex-col items-center text-center">
+  <h2 className="text-xl sm:text-2xl font-semibold mb-3 text-gray-800">
+    ¡Regístrate para acceder a más ejercicios gratuitos!
+  </h2>
+  <p className="text-gray-600 mb-5">
+    Al registrarte podrás desbloquear todos nuestros ejercicios y seguir mejorando tu técnica vocal.
+  </p>
+  <a
+    href="/register"
+    className="px-6 py-2 bg-pink-500 text-white rounded-md shadow-md hover:bg-pink-600 duration-300 overflow-hidden transition-transform hover:scale-105"
+  >
+    Ir a Registrar
+  </a>
+</div>
 
         {open && selectedMedia && (
           <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
@@ -94,6 +112,10 @@ export default function Exercises() {
               </div>
             </div>
           </div>
+
+      
+   
+
         )}
       </div>
     </div>

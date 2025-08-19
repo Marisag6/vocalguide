@@ -2,6 +2,7 @@ import React from "react";
 import ProductCard from "../components/store/ProductCard";
 import pdfPage13 from "../pdf/portada.png";
 import { CheckCircle, ShoppingCart, FileText, CreditCard, Upload } from "lucide-react";
+//import Layout from "../components/Layout";
 
 const Store = () => {
   const product = {
